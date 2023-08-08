@@ -103,43 +103,43 @@ class Scraper():
         print('Lista de Clientes: ', numero_cliente)
         print('----------------------------------------------------------------------')
 
-        # # Obtiene el identificador de la ventana actual
-        # current_window = self.driver.current_window_handle
-        # print(current_window)
-        # print('----------------------------------------------------------------------')
+        # Obtiene el identificador de la ventana actual
+        current_window = self.driver.current_window_handle
+        print(current_window)
+        print('----------------------------------------------------------------------')
             
-        # # Obtiene los identificadores de las ventanas abiertas
-        # window_handles = self.driver.window_handles
-        # print(window_handles, len(window_handles))
-        # print('----------------------------------------------------------------------')            
+        # Obtiene los identificadores de las ventanas abiertas
+        window_handles = self.driver.window_handles
+        print(window_handles, len(window_handles))
+        print('----------------------------------------------------------------------')            
             
-        # # Cambiar al último manejo de ventana emergente
-        # self.driver.switch_to.window(window_handles[0])
-        # self.driver.implicitly_wait(25)
+        # Cambiar al último manejo de ventana emergente
+        self.driver.switch_to.window(window_handles[0])
+        self.driver.implicitly_wait(25)
 
-        # div_right_content = self.driver.find_element(By.ID,'divRightContent').find_element(By.ID,'ctl00_ContentPlaceHolder1_fltCuentasUsuario_ddlNroClienteFCU')
-        # self.driver.switch_to.frame(div_right_content)
+        div_right_content = self.driver.find_element(By.ID,'divRightContent').find_element(By.ID,'ctl00_ContentPlaceHolder1_fltCuentasUsuario_ddlNroClienteFCU')
+        self.driver.switch_to.frame(div_right_content)
 
-        # intentos = 0
-        # reintentar = True
-        # #selector_seleccione = '//*[@id="ctl00_ContentPlaceHolder1_fltCuentasUsuario_ddlNroClienteFCU"]'
-        # selector_seleccione_1 = 'ctl00_ContentPlaceHolder1_fltCuentasUsuario_ddlNroClienteFCU'
-        # #selector_seleccione_2 = "ctl00$ContentPlaceHolder1$fltCuentasUsuario$ddlNroClienteFCU"
+        intentos = 0
+        reintentar = True
+        #selector_seleccione = '//*[@id="ctl00_ContentPlaceHolder1_fltCuentasUsuario_ddlNroClienteFCU"]'
+        selector_seleccione_1 = 'ctl00_ContentPlaceHolder1_fltCuentasUsuario_ddlNroClienteFCU'
+        #selector_seleccione_2 = "ctl00$ContentPlaceHolder1$fltCuentasUsuario$ddlNroClienteFCU"
         
-        # while (reintentar):
-        #     try:
-        #         print('Try en la funcion click_element_xpath para el campo seleccione...', intentos)
-        #         print('----------------------------------------------------------------------')
-        #         intentos += 1
-        #         self.wait(20).until(EC.presence_of_element_located((By.ID, selector_seleccione_1)))
-        #         seleccione = self.driver.find_element(By.ID, selector_seleccione_1)
-        #         seleccione.send_keys(numero_cliente)
-        #         reintentar = False
-        #     except Exception as e:    
-        #         print('Exception en la funcion click_element_xpath', e)
-        #         print('----------------------------------------------------------------------')
+        while (reintentar):
+            try:
+                print('Try en la funcion click_element_xpath para el campo seleccione...', intentos)
+                print('----------------------------------------------------------------------')
+                intentos += 1
+                self.wait(20).until(EC.presence_of_element_located((By.ID, selector_seleccione_1)))
+                seleccione = self.driver.find_element(By.ID, selector_seleccione_1)
+                seleccione.send_keys(numero_cliente)
+                reintentar = False
+            except Exception as e:    
+                print('Exception en la funcion click_element_xpath', e)
+                print('----------------------------------------------------------------------')
 
-        #         reintentar = intentos <= 3
+                reintentar = intentos <= 3
 
         # self.driver.switch_to.default_content()
         time.sleep(25)

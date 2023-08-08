@@ -1,4 +1,4 @@
-from app import Scraper
+from codigo.app import Scraper
 #import smtplib
 
 
